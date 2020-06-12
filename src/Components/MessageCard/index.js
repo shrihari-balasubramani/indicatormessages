@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@xstyled/styled-components';
 import { th } from '@xstyled/system';
+import PropTypes from 'prop-types';
 import MessageSummary from './MessageSummary';
 import MessageDescription from './MessageDescription';
 
@@ -13,11 +14,24 @@ const Wrapper = styled.div`
   height: 140px;
 `;
 
-const MessageCard = () => (
+const MessageCard = ({ message, id }) => (
   <Wrapper>
-    <MessageSummary />
-    <MessageDescription />
+    <MessageSummary
+      riskScore={message?.risk_score}
+      type={message?.indicator_message_type}
+    />
+    <MessageDescription
+      name={message?.name}
+      createdAt={message?.created_at}
+      source={message?.source}
+      subject={message?.subject}
+      id={id}
+    />
   </Wrapper>
 );
+MessageCard.propTypes = {
+  message: PropTypes.object,
+  id: PropTypes.string
+};
 
 export default MessageCard;

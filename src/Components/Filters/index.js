@@ -1,6 +1,7 @@
 import React from 'react';
 import { th } from '@xstyled/system';
 import styled from '@xstyled/styled-components';
+import PropTypes from 'prop-types';
 import { RiskScoreFilter, RiskEventsFilter } from './Filters';
 import Button from '../Button';
 
@@ -25,29 +26,59 @@ const ButtonWrappers = styled.div`
     margin-right: 3;
   }
 `;
-const SubmitButtons = () => (
+const SubmitButtons = ({ submitFilter, resetFilter }) => (
   <ButtonWrappers>
-    <Button primary>Filter</Button>
-    <Button>Reset</Button>
+    <Button primary onClick={() => submitFilter()}>
+      Filter
+    </Button>
+    <Button onClick={() => resetFilter()}>Reset</Button>
   </ButtonWrappers>
 );
+SubmitButtons.propTypes = {
+  submitFilter: PropTypes.func,
+  resetFilter: PropTypes.func
+};
 
-const Filters = () => {
-  const [value, setValue] = React.useState([0, 100]);
-  const handleChange = (event, newValue) => {
+const Filters = ({
+  minScore = 0,
+  maxScore = 100,
+  event = false,
+  setFilterValue
+}) => {
+  const [value, setValue] = React.useState([minScore, maxScore]);
+  const handleChange = (e, newValue) => {
     setValue(newValue);
   };
-  const [checked, setChecked] = React.useState(false);
-  const handleChecked = event => {
-    setChecked(event.target.checked);
+  const [checked, setChecked] = React.useState(event);
+  const handleChecked = e => {
+    setChecked(e.target.checked);
   };
+  const submitFilter = () => {
+    setFilterValue(value[0], value[1], checked);
+  };
+  const resetFilter = () => {
+    setFilterValue(0, 100, false);
+    setValue([0, 100]);
+    setChecked(false);
+  };
+
   return (
     <Wrapper>
-      <RiskScoreFilter scoreRange={value} onChange={handleChange} />
+      <RiskScoreFilter
+        disabled={checked}
+        scoreRange={value}
+        onChange={handleChange}
+      />
       <RiskEventsFilter checked={checked} onChange={handleChecked} />
-      <SubmitButtons />
+      <SubmitButtons submitFilter={submitFilter} resetFilter={resetFilter} />
     </Wrapper>
   );
+};
+Filters.propTypes = {
+  minScore: PropTypes.number,
+  maxScore: PropTypes.number,
+  event: PropTypes.bool,
+  setFilterValue: PropTypes.func
 };
 
 export default Filters;

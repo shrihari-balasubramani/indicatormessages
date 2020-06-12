@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { TextField } from '@material-ui/core';
 import styled, { css } from '@xstyled/styled-components';
-import { H6, Span } from '../../Components/Typography';
 import { th } from '@xstyled/system';
+import PropTypes from 'prop-types';
+import { H6, Span } from '../../Components/Typography';
 import Button from '../../Components/Button';
 
 const FlexWrapper = css`
@@ -23,6 +24,7 @@ const Formfields = styled.div`
   padding: 5;
   & > * {
     margin-bottom: 4;
+    min-width: 270px;
   }
 `;
 
@@ -37,21 +39,13 @@ const StyledSpan = styled(Span)`
   font-size: 0.6rem;
 `;
 
-const PageView = ({ loginFailed, onClick }) => {
-  // if logged in re route
-  // else log in
+const PageView = ({ isAuthenticated, attemptState, onClick }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   return (
     <LoginWrapper>
       <Formfields>
-        <H6>
-          Please log in to continue
-          <br />
-          {loginFailed && (
-            <StyledSpan>Please enter valid enteries and try again!</StyledSpan>
-          )}
-        </H6>
+        <H6>Please log in to continue</H6>
 
         <div>
           <TextField
@@ -59,7 +53,9 @@ const PageView = ({ loginFailed, onClick }) => {
             label='Username'
             type='email'
             value={username}
-            onChange={event => setUsername(event.target.value)}
+            size='medium'
+            fullWidth
+            onChange={(event) => setUsername(event.target.value)}
             autoFocus
             required
           />
@@ -70,16 +66,31 @@ const PageView = ({ loginFailed, onClick }) => {
             label='password'
             type='password'
             value={password}
-            onChange={event => setPassword(event.target.value)}
+            size='medium'
+            fullWidth
+            onChange={(event) => setPassword(event.target.value)}
             required
           />
         </div>
-        <StyledButton primary onClick={() => onClick(username, password)}>
-          Log in
+        <StyledButton
+          primary
+          disabled={attemptState === 'loading'}
+          onClick={() => onClick(username, password)}
+        >
+          {(attemptState === 'loading' && 'Please Wait') || 'Log in'}
         </StyledButton>
+        {attemptState === 'loaded' && (
+          <StyledSpan>Please enter valid enteries and try again!</StyledSpan>
+        )}
       </Formfields>
     </LoginWrapper>
   );
+};
+
+PageView.propTypes = {
+  isAuthenticated: PropTypes.bool,
+  attemptState: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default PageView;

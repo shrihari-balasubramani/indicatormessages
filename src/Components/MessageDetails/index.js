@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@xstyled/styled-components';
 import { th } from '@xstyled/system';
+import moment from 'moment';
+import PropTypes from 'prop-types';
 import { P, Span, H6 } from '../Typography';
 
 const Wrapper = styled.div`
@@ -9,7 +11,7 @@ const Wrapper = styled.div`
   border-radius: 4px;
   background: ${th.color('secondary.background')};
   width: 100%;
-  height: 140px;
+  min-height: 140px;
   position: relative;
 `;
 
@@ -28,13 +30,14 @@ const HeadingWrapper = styled.div`
   border-radius: 4px;
 `;
 
-const Heading = () => (
+const Heading = ({ type }) => (
   <HeadingWrapper>
-    <P>Industrial disputes at location</P>
+    <P>type: {type}</P>
   </HeadingWrapper>
 );
-
-const RiskScoreBar = () => <div></div>;
+Heading.propTypes = {
+  type: PropTypes.string
+};
 
 const Type = styled(P)`
   color: ${th.color('secondary.lighter')};
@@ -51,16 +54,18 @@ const MetaWrapper = styled.div`
   border-right: 1px solid ${th.color('secondary.light')};
 `;
 
-const MetaSection = () => (
+const MetaSection = ({ validUntil, type }) => (
   <MetaWrapper>
-    <Type>Location disputes</Type>
+    <Type>{type}</Type>
     <P fontSize={'0.65rem'} ml={2} mt={4}>
-      Valid until blka blad
+      Valid until {moment(validUntil).format('MMMM Do YYYY, h:mm:ss a')}
     </P>
-    {/* <RiskScoreBar />
-     */}
   </MetaWrapper>
 );
+MetaSection.propTypes = {
+  validUntil: PropTypes.string,
+  type: PropTypes.string
+};
 
 const DetailsWrapper = styled.div`
   width: 65%;
@@ -68,20 +73,32 @@ const DetailsWrapper = styled.div`
   padding: 2;
 `;
 
-const DetailsSection = () => (
+const DetailsSection = ({
+  source,
+  created_at,
+  subject,
+  body_with_rendered_links
+}) => (
   <DetailsWrapper>
     <P color='secondary.main' fontSize={'0.6rem'}>
-      Created on by bnladwda
+      Created on {moment(created_at).format('MMMM Do YYYY, h:mm:ss a')}
     </P>
     <P color='secondary.main' fontSize={'0.6rem'}>
-      Source
+      Source : {source}
     </P>
     <H6 mt={2} mb={4}>
-      Paris
+      {subject}
     </H6>
-    <P>laowdjda awdkdpaw wdaojdoaw wadpokjdaow</P>
+    <P dangerouslySetInnerHTML={{ __html: body_with_rendered_links }} />
   </DetailsWrapper>
 );
+
+DetailsSection.propTypes = {
+  source: PropTypes.string,
+  created_at: PropTypes.string,
+  subject: PropTypes.string,
+  body_with_rendered_links: PropTypes.string
+};
 
 const ScoreWrapper = styled.div`
   display: flex;
@@ -91,22 +108,36 @@ const ScoreWrapper = styled.div`
   width: 20%;
 `;
 
-const ScoreSection = () => (
+const ScoreSection = ({ available, value }) => (
   <ScoreWrapper>
     <H6 fontSize='2rem' mb={4}>
-      80 <Span>(80)</Span>
+      {value} <Span>(100)</Span>
     </H6>
-    <P>Risk score already set</P>
+    <P>{available ? 'Risk score already set' : 'Risk score not set yet'}</P>
   </ScoreWrapper>
 );
+ScoreSection.propTypes = {
+  available: PropTypes.bool,
+  value: PropTypes.number
+};
 
-const MessageDetails = () => (
+const MessageDetails = ({
+  risk_score,
+  indicator_message_type,
+  valid_until,
+  ...rest
+}) => (
   <Wrapper>
-    <Heading />
-    <MetaSection />
-    <DetailsSection />
-    <ScoreSection />
+    <Heading type={indicator_message_type} />
+    <MetaSection validUntil={valid_until} type={indicator_message_type} />
+    <DetailsSection {...rest} />
+    <ScoreSection {...risk_score} />
   </Wrapper>
 );
+MessageDetails.propTypes = {
+  risk_score: PropTypes.object,
+  indicator_message_type: PropTypes.string,
+  valid_until: PropTypes.string
+};
 
 export default MessageDetails;

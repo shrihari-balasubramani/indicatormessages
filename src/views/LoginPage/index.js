@@ -1,15 +1,28 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import LoginPage from './LoginPageView';
-import { logMeIn } from '../../core/store/actions';
+import { logMeIn } from '../../core/store/actions/usersAuth';
 
 const Page = () => {
   const dispatch = useDispatch();
+  const getUserData = (state) => state.user;
+
+  const logInInfo = useSelector(getUserData);
+
   const onClick = (username, password) => {
-    console.log('awdhwd');
     dispatch(logMeIn(username, password));
   };
-  return <LoginPage loginFailed={true} onClick={onClick} />;
+
+  return logInInfo.isAuthenticated ? (
+    <Redirect
+      to={{
+        pathname: '/messages'
+      }}
+    />
+  ) : (
+    <LoginPage attemptState={logInInfo.attemptState} onClick={onClick} />
+  );
 };
 
 export default Page;

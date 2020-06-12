@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@xstyled/styled-components';
 import { th } from '@xstyled/system';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,5 +21,9 @@ const MessageListCanvas = ({ fullWidth, children }) => (
     <SimulateLayout fullWidth={fullWidth}>{children}</SimulateLayout>
   </Wrapper>
 );
+
+MessageListCanvas.propTypes = {
+  fullWidth: PropTypes.bool
+};
 
 export default MessageListCanvas;

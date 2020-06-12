@@ -5,7 +5,7 @@ import MessageListCanvas from '../../../.storybook/TestComponents/MessageListCan
 
 const Test = props => (
   <MessageListCanvas>
-    <Filters />
+    <Filters setFilterValue={() => null} />
   </MessageListCanvas>
 );
 

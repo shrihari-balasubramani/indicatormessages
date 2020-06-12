@@ -21,7 +21,8 @@ const theme = {
       main: 'rgba(0, 0, 0, 0.25)'
     },
     positive: '#6C9F3C',
-    negative: '#EB8F1E',
+    usual: '#EB8F1E',
+    negative: '#cc3333',
 
     modes: {
       dark: {
@@ -46,7 +47,8 @@ const theme = {
           main: 'rgba(100, 100, 100, 0.25)'
         },
         positive: '#6C9F3C',
-        negative: '#EB8F1E'
+        usual: '#EB8F1E',
+        negative: '#cc3333'
       }
     }
   },

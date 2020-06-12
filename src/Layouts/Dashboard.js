@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from '@xstyled/styled-components';
-import { useColorMode } from '@xstyled/styled-components';
+// import { useColorMode } from '@xstyled/styled-components';
 
 const LayoutWrapper = styled.div`
   width: 100%;
@@ -11,17 +11,12 @@ const LayoutWrapper = styled.div`
 const ElementCanvas = styled.div`
   width: 100%;
   max-width: 1100px;
+  padding: 10 0;
 `;
 
-const Layout = ({ children }) => {
-  const [colorMode, setColorMode] = useColorMode();
-  useEffect(() => setColorMode('default'), []);
-
-  return (
-    <LayoutWrapper>
-      <ElementCanvas>{children}</ElementCanvas>
-    </LayoutWrapper>
-  );
-};
-
+const Layout = ({ children }) => (
+  <LayoutWrapper>
+    <ElementCanvas>{children}</ElementCanvas>
+  </LayoutWrapper>
+);
 export default Layout;

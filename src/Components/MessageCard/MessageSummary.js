@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from '@xstyled/styled-components';
 import { th } from '@xstyled/system';
-import { P, Span, H6 } from '../Typography';
+import PropTypes from 'prop-types';
+import { P } from '../Typography';
 
 const SummaryWrapper = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ const SummaryWrapper = styled.div`
 const Score = styled(P)`
   color: ${th.color('secondary.background')};
   padding: 0 2;
-  background: ${th.color('positive')};
+  background: ${p => th.color(p.zone)};
   height: fit-content;
   position: absolute;
   top: 20%;
@@ -33,11 +34,23 @@ const Type = styled(P)`
   padding: 1 0;
 `;
 
-const MessageSummary = () => (
+const getRiskZone = (value = 0) => {
+  if (value < 50) {
+    return 'positive';
+  } else if (value < 75) {
+    return 'usual';
+  } else return 'negative';
+};
+
+const MessageSummary = ({ riskScore, type }) => (
   <SummaryWrapper>
-    <Score>50</Score>
-    <Type>Financial stability supplier</Type>
+    <Score zone={getRiskZone(riskScore?.value)}>{riskScore?.value}</Score>
+    <Type>{type}</Type>
   </SummaryWrapper>
 );
+MessageSummary.propTypes = {
+  riskScore: PropTypes.object,
+  type: PropTypes.string
+};
 
 export default MessageSummary;

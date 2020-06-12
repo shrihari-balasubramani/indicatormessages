@@ -10,8 +10,9 @@ export default {
       client_id: process.env.config.CLIENT_ID,
       client_secret: process.env.config.CLIENT_SECRET
     };
-    const response = await fetchAPI.post(url, authData);
-    document.cookie = JSON.stringify(response);
-    return response;
+    const { data } = await fetchAPI.post(url, authData);
+    document.cookie = `access_token=${data.access_token};max-age=${data.expires_in}`;
+    fetchAPI.defaults.headers.common.Authorization = `Bearer ${data.access_token}`;
+    return data.access_token;
   }
 };

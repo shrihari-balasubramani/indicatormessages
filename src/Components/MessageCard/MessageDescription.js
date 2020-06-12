@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from '@xstyled/styled-components';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { P, Span, H6 } from '../Typography';
 import Button from '../Button';
 
@@ -26,24 +29,35 @@ const DetailsBtn = styled(Button)`
   right: 8px;
 `;
 
-const MessageDescription = () => (
+const MessageDescription = ({
+  name, source, createdAt, subject, id
+}) => (
   <Wrapper>
-    <H6>GDP Per capita </H6>
+    <H6>{name}</H6>
     <ContentWrapper>
       <Span variant='caption' color='secondary.main' fontSize='0.6rem'>
-        Created on bla bla bla
+        Created : {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')}
       </Span>
       <Span variant='caption' color='secondary.main' fontSize='0.6rem'>
-        Source is bla bla bla
+        Source : {source}
       </Span>
     </ContentWrapper>
     <P>
-      Indicator: <Span fontWeight='700'> unemployment rate value: high </Span>
+      Indicator: <Span fontWeight='700'> {subject} </Span>
     </P>
-    <DetailsBtn>
-      <Span>Details</Span>
-    </DetailsBtn>
+    <Link to={`/message_details/${id}`}>
+      <DetailsBtn>
+        <Span>Details</Span>
+      </DetailsBtn>
+    </Link>
   </Wrapper>
 );
+MessageDescription.propTypes = {
+  name: PropTypes.string,
+  source: PropTypes.string,
+  createdAt: PropTypes.string,
+  subject: PropTypes.string,
+  id: PropTypes.string
+};
 
 export default MessageDescription;

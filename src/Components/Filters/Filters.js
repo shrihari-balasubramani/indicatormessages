@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Slider from '@material-ui/core/Slider';
 import styled from '@xstyled/styled-components';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -20,6 +21,10 @@ const FilterTemplate = ({ title, children }) => (
   </FilterWrapper>
 );
 
+FilterTemplate.propTypes = {
+  title: PropTypes.string
+};
+
 const StyledSlider = styled(props => (
   <Slider classes={{ colorPrimary: 'colorPrimary' }} {...props} />
 ))`
@@ -33,10 +38,11 @@ const SliderWrapper = styled.div`
   box-sizing: border-box;
 `;
 
-export const RiskScoreFilter = ({ scoreRange, onChange }) => (
+export const RiskScoreFilter = ({ disabled, scoreRange, onChange }) => (
   <FilterTemplate title='Risk Score'>
     <SliderWrapper>
       <StyledSlider
+        disabled={disabled}
         value={scoreRange}
         onChange={onChange}
         component='div'
@@ -47,6 +53,13 @@ export const RiskScoreFilter = ({ scoreRange, onChange }) => (
     </SliderWrapper>
   </FilterTemplate>
 );
+
+RiskScoreFilter.propTypes = {
+  scoreRange: PropTypes.array,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func
+};
+
 const StyledCheckbox = styled(props => (
   <Checkbox
     classes={{ colorPrimary: 'colorPrimary', checked: 'checked' }}
@@ -70,3 +83,8 @@ export const RiskEventsFilter = ({ checked, onChange }) => (
     </Span>
   </FilterTemplate>
 );
+
+RiskEventsFilter.propTypes = {
+  checked: PropTypes.bool,
+  onChange: PropTypes.func
+};

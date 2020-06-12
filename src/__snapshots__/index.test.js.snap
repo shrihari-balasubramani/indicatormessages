@@ -1,0 +1,304 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots /Filters Default 1`] = `
+<div
+  className="sc-psQdR hOvgzu"
+>
+  <div
+    className="sc-qPlga ezoWEM"
+  >
+    <div
+      className="sc-pbYBj jOXTfu"
+    >
+      <div
+        className="sc-pzMyG kmkWxc"
+      >
+        <h6
+          className="sc-qZtCU ljeOsr"
+          fontWeight="700"
+        >
+          Risk Score
+        </h6>
+        <div
+          className="sc-pQEbo dwCtsI"
+        >
+          <div
+            aria-labelledby="range-slider"
+            className="sc-pHIBf fSKDhI"
+            classes={
+              Object {
+                "colorPrimary": "colorPrimary",
+              }
+            }
+            color="primary"
+            component="div"
+            disabled={false}
+            onChange={[Function]}
+            value={
+              Array [
+                0,
+                100,
+              ]
+            }
+            valueLabelDisplay="on"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-pzMyG kmkWxc"
+      >
+        <h6
+          className="sc-qZtCU ljeOsr"
+          fontWeight="700"
+        >
+          Events only
+        </h6>
+        <span
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-7 MuiCheckbox-root MuiCheckbox-colorPrimary colorPrimary sc-pYA-dN cvpGGQ MuiIconButton-colorPrimary"
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={null}
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <input
+              checked={false}
+              className="PrivateSwitchBase-input-10"
+              data-indeterminate={false}
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          className="sc-qQYBZ fztocJ"
+          color="secondary.main"
+          fontSize="0.6rem"
+          fontWeight="600"
+        >
+          (Messages with risk score 100 only)
+        </span>
+      </div>
+      <div
+        className="sc-pkUbs fgVLVL"
+      >
+        <button
+          className="sc-oUcyK cNcgfP"
+          onClick={[Function]}
+        >
+          Filter
+        </button>
+        <button
+          className="sc-oUcyK drQMCL"
+          onClick={[Function]}
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots /MessageCard Default 1`] = `
+<div
+  className="sc-psQdR hOvgzu"
+>
+  <div
+    className="sc-qPlga ezoWEM"
+  >
+    <div
+      className="sc-pcJja kiwKsZ"
+    >
+      <div
+        className="sc-qXhiz hhMEhL"
+      >
+        <p
+          className="sc-pscky sc-pzYib enyvVB"
+        >
+          100
+        </p>
+        <p
+          className="sc-pscky sc-pItiW eCqgvo"
+        >
+          location
+        </p>
+      </div>
+      <div
+        className="sc-pQSRh fSKHtc"
+      >
+        <h6
+          className="sc-qZtCU kxQvTi"
+        >
+          Neumark
+        </h6>
+        <div
+          className="sc-pZnSc krZkvU"
+        >
+          <span
+            className="sc-qQYBZ gAhJAk"
+            color="secondary.main"
+            fontSize="0.6rem"
+          >
+            Created : 
+            June 4th 2020, 10:42:32 am
+          </span>
+          <span
+            className="sc-qQYBZ gAhJAk"
+            color="secondary.main"
+            fontSize="0.6rem"
+          >
+            Source : 
+            © test - Event researched by riskmethods
+          </span>
+        </div>
+        <p
+          className="sc-pscky eXyZzc"
+        >
+          Indicator: 
+          <span
+            className="sc-qQYBZ hEDhgv"
+            fontWeight="700"
+          >
+             
+            test
+             
+          </span>
+        </p>
+        <a
+          href="/message_details/3673290"
+          onClick={[Function]}
+        >
+          <button
+            className="sc-oUcyK sc-oUoif fTEsBe"
+          >
+            <span
+              className="sc-qQYBZ kmJQHH"
+            >
+              Details
+            </span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots /MessageDetails Default 1`] = `
+<div
+  className="sc-psQdR hOvgzu"
+>
+  <div
+    className="sc-qPlga cOfrjK"
+  >
+    <div
+      className="sc-pliRl ciiTXF"
+    >
+      <div
+        className="sc-ptDSg jqmsKt"
+      >
+        <p
+          className="sc-pscky eXyZzc"
+        >
+          type: 
+          location
+        </p>
+      </div>
+      <div
+        className="sc-qXRQq cTMtSX"
+      >
+        <p
+          className="sc-pscky sc-qPwPv gBreCb"
+        >
+          location
+        </p>
+        <p
+          className="sc-pscky fxOyfW"
+          fontSize="0.65rem"
+        >
+          Valid until 
+          June 24th 2020, 11:59:59 pm
+        </p>
+      </div>
+      <div
+        className="sc-pAncQ dTQVxw"
+      >
+        <p
+          className="sc-pscky BkXTD"
+          color="secondary.main"
+          fontSize="0.6rem"
+        >
+          Created on 
+          June 4th 2020, 10:42:32 am
+        </p>
+        <p
+          className="sc-pscky BkXTD"
+          color="secondary.main"
+          fontSize="0.6rem"
+        >
+          Source : 
+          © test - Event researched by riskmethods
+        </p>
+        <h6
+          className="sc-qZtCU gzEYpB"
+        >
+          test
+        </h6>
+        <p
+          className="sc-pscky eXyZzc"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "test reports that:
+test
+... <a target=\\"_blank\\" rel=\\"noopener noreferrer\\" id=\\"body-redirect-link\\" href=\\"https://staging.riskmethods.net/worldmap\\">read more</a>",
+            }
+          }
+        />
+      </div>
+      <div
+        className="sc-pIjat EbDsT"
+      >
+        <h6
+          className="sc-qZtCU jgiApW"
+          fontSize="2rem"
+        >
+          100
+           
+          <span
+            className="sc-qQYBZ kmJQHH"
+          >
+            (100)
+          </span>
+        </h6>
+        <p
+          className="sc-pscky eXyZzc"
+        >
+          Risk score already set
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
