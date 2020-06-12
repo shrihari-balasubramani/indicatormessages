@@ -1,4 +1,4 @@
-# Five in a Row
+# Indicator Messages by Risk methods
 
 ## 1. Install the app
 
