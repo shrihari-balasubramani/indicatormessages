@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@xstyled/styled-components';
 import { Provider } from 'react-redux';
-import Index from './index';
 import GlobalStyles from '../globalStyle';
 import theme from '../theme';
 import MessagesListPage from './MessagesListPage';
@@ -23,7 +22,7 @@ const App = () => (
             component={MessageDetailsPage}
           />
           <Route path='/login' component={LoginPage} />
-          <Route path='/' component={Index} />
+          <Route path='/' component={LoginPage} />
         </Switch>
       </Router>
     </Provider>

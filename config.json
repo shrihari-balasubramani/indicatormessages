@@ -2,7 +2,6 @@
     "development":{
         "indicatorMessages": "https://cors-anywhere.herokuapp.com/https://stagingapi.riskmethods.net/v2/indicator_messages/",
         "auth": "https://cors-anywhere.herokuapp.com/https://stagingauth.riskmethods.net/oauth/token",
-        // should ideally put this file in lock git
         "CLIENT_ID" : "fjHsalRElzo6JB_dvIGx6pw2p4WMT0pMjhtcW7d159Q",
         "CLIENT_SECRET" : "dSANY4dUV8cn-24WD8R9tBlWtWM70RrabWbfOne442o"
     },
