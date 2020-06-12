@@ -8,7 +8,7 @@
   },
   "author": "Shrihari Balasubramani",
   "scripts": {
-    "build": "rimraf ./build && cross-env NODE_ENV=production webpack --config ./bin/webpack/webpack.prod.babel.js --color -p --progress",
+    "build": "cross-env NODE_ENV=production webpack --config ./bin/webpack/webpack.prod.babel.js --color -p --progress",
     "start": "npm run build && cross-env NODE_ENV=production node server",
     "start:development": "cross-env NODE_ENV=development node server",
     "lint": "./node_modules/.bin/eslint --fix --config .eslintrc.yml --ext js --ext jsx src .storybook || exit 0",

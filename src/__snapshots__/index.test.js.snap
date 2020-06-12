@@ -214,10 +214,10 @@ exports[`Storyshots /MessageDetails Default 1`] = `
     className="sc-qPlga cOfrjK"
   >
     <div
-      className="sc-pliRl ciiTXF"
+      className="sc-pIjat dnDaww"
     >
       <div
-        className="sc-ptDSg jqmsKt"
+        className="sc-pliRl jJprAK"
       >
         <p
           className="sc-pscky eXyZzc"
@@ -227,10 +227,10 @@ exports[`Storyshots /MessageDetails Default 1`] = `
         </p>
       </div>
       <div
-        className="sc-qXRQq cTMtSX"
+        className="sc-qPwPv kucMyA"
       >
         <p
-          className="sc-pscky sc-qPwPv gBreCb"
+          className="sc-pscky sc-ptDSg khvkNj"
         >
           location
         </p>
@@ -243,7 +243,7 @@ exports[`Storyshots /MessageDetails Default 1`] = `
         </p>
       </div>
       <div
-        className="sc-pAncQ dTQVxw"
+        className="sc-qXRQq guyHbG"
       >
         <p
           className="sc-pscky BkXTD"
@@ -278,7 +278,7 @@ test
         />
       </div>
       <div
-        className="sc-pIjat EbDsT"
+        className="sc-pAncQ fysAyo"
       >
         <h6
           className="sc-qZtCU jgiApW"
