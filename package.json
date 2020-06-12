@@ -9,8 +9,8 @@
   "author": "Shrihari Balasubramani",
   "scripts": {
     "build": "rimraf ./build && cross-env NODE_ENV=production webpack --config ./bin/webpack/webpack.prod.babel.js --color -p --progress",
-    "start": "cross-env NODE_ENV=development node server",
-    "start:production": "npm run build && cross-env NODE_ENV=production node server",
+    "start": "npm run build && cross-env NODE_ENV=production node server",
+    "start:development": "cross-env NODE_ENV=development node server",
     "lint": "./node_modules/.bin/eslint --fix --config .eslintrc.yml --ext js --ext jsx src .storybook || exit 0",
     "lint:fix": " ./node_modules/.bin/eslint --fix --config .eslintrc.yml --ext js --ext jsx src .storybook --fix || exit 0",
     "test": "cross-env NODE_ENV=test jest --ci --reporters=default --reporters=jest-junit --coverage --passWithNoTests",
@@ -74,7 +74,9 @@
     "html-webpack-plugin": "4.3.0",
     "circular-dependency-plugin": "5.2.0",
     "babel-loader": "8.1.0",
-    "html-loader": "1.1.0"
+    "html-loader": "1.1.0",
+    "@babel/preset-env": "7.9.6",
+    "@babel/preset-react": "7.9.4"
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
@@ -85,8 +87,6 @@
     "@babel/plugin-transform-modules-commonjs": "7.9.6",
     "@babel/plugin-transform-react-constant-elements": "7.9.0",
     "@babel/plugin-transform-react-inline-elements": "7.9.0",
-    "@babel/preset-env": "7.9.6",
-    "@babel/preset-react": "7.9.4",
     "@babel/register": "7.9.0",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",

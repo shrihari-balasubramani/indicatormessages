@@ -2,8 +2,9 @@ import React from 'react';
 import { th } from '@xstyled/system';
 import styled from '@xstyled/styled-components';
 import PropTypes from 'prop-types';
-import { RiskScoreFilter, RiskEventsFilter } from './Filters';
-import Button from '../Button';
+import RiskScoreFilter from './RiskScoreFilter';
+import RiskEventsFilter from './RiskEventsFilter';
+import SubmitButtons from './SubmitButtons';
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,27 +18,6 @@ const Wrapper = styled.div`
   align-items: flex-start;
   box-sizing: border-box;
 `;
-
-const ButtonWrappers = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  ${Button} {
-    margin-right: 3;
-  }
-`;
-const SubmitButtons = ({ submitFilter, resetFilter }) => (
-  <ButtonWrappers>
-    <Button primary onClick={() => submitFilter()}>
-      Filter
-    </Button>
-    <Button onClick={() => resetFilter()}>Reset</Button>
-  </ButtonWrappers>
-);
-SubmitButtons.propTypes = {
-  submitFilter: PropTypes.func,
-  resetFilter: PropTypes.func
-};
 
 const Filters = ({
   minScore = 0,
